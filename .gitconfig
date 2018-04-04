@@ -13,11 +13,13 @@
 [core]
   excludesfile = ~/.gitignore  # globalな.gitignoreの指定
   autocrlf = input                 # CRLFを自動変換
+  editor = vim                 # エディタをvimにする
 [alias]
   st = status
   sh = show
   so = remote show origin
   ft = fetch
+  pl = pull
   up = pull --rebase       # pull rebase
   rbm = rebase master      # masterへのrebaseはよく使うのでalias
   ad = add

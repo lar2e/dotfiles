@@ -22,3 +22,4 @@ export PATH="/usr/local/Cellar/git/2.15.1_1/bin:$PATH"
 
 # vim を homebrewに変更
 export PATH="/usr/local/bin:$PATH"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
