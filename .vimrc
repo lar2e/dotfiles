@@ -66,6 +66,8 @@ set autoread                                 " 外部でファイルに変更が
 set backspace=indent,eol,start               "backspaceで消せるようにする
 autocmd QuickFixCmdPost *grep* cwindow       " grep後にquickfix-windowを起動する
 autocmd BufWritePre * :%s/\s\+$//ge          " ファイル保存時に行末の空白を自動削除
+set hlsearch!
+nnoremap <F3> :set hlsearch!<CR>
 
 augroup myfiletypes
   " Section: ruby
