@@ -19,7 +19,7 @@ export PATH="/anaconda/bin:$PATH"
 eval "$(rbenv init -)"
 
 # pyenv
-eval "$(pyenv init -)"
+# eval "$(pyenv init -)"
 
 # gitコマンドをhomebrewに変更
 export PATH="/usr/local/Cellar/git/2.15.1_1/bin:$PATH"
@@ -29,4 +29,5 @@ export PATH="/usr/local/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # pythonをphenvを見るようにする
-export PATH="$HOME/.pyenv/shims:$PATH"
+# export PATH="$HOME/.pyenv/shims:$PATH"
+export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"

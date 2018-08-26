@@ -60,3 +60,5 @@
   # grep関連
   gr = grep
   gn = grep -n
+[ghq]
+	root = /Users/kayamadaiji/workspace/sources
