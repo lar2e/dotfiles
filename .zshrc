@@ -7,8 +7,8 @@ POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=1
 #POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time history time)
-#POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-#POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
+# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+# POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
 
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
@@ -75,6 +75,8 @@ autoload -U promptinit; promptinit
 # プロンプトを変更
 #prompt pure
 
+# plugins
+zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-completions'
 zplug 'zsh-users/zsh-syntax-highlighting'
@@ -103,29 +105,7 @@ if ! zplug check --verbose; then
 fi
 
 # コマンドをリンクして、PATH に追加し、プラグインは読み込む
-zplug load --verbose
-
-# ------------------------------------
-# powershell
-# ------------------------------------
-zplug "b-ryan/powerline-shell"
-
-function powerline_precmd() {
-    PS1="$(powerline-shell --shell zsh $?)"
-}
-
-function install_powerline_precmd() {
-  for s in ${precmd_functions[@]}; do
-    if [ "$s" = "powerline_precmd" ]; then
-      return
-    fi
-  done
-  precmd_functions+=(powerline_precmd)
-}
-
-if [ "$TERM" != "linux" ]; then
-    install_powerline_precmd
-fi
+zplug load
 
 # ------------------------------------
 # bind_keys
