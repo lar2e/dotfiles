@@ -1,3 +1,6 @@
+# ------------------------------------
+# 環境変数
+# ------------------------------------
 POWERLEVEL9K_MODE='awesome-fontconfig'
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=1
 #POWERLEVEL9K_ALWAYS_SHOW_USER=true
@@ -8,6 +11,11 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time history time)
 #POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
 
 ZSH_THEME="powerlevel9k/powerlevel9k"
+
+# 履歴
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
 
 # ------------------------------------
 # alias
@@ -26,6 +34,15 @@ alias docp="docker-compose"
 # ------------------------------------
 # 環境設定
 # ------------------------------------
+# 他のターミナルとヒストリーを共有
+setopt share_history
+
+# ヒストリーに重複を表示しない
+setopt histignorealldups
+
+# コマンド入力ミスを修正
+setopt correct
+
 # nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
@@ -57,8 +74,6 @@ source $ZPLUG_HOME/init.zsh
 autoload -U promptinit; promptinit
 # プロンプトを変更
 #prompt pure
-
-# setopt auto_cd
 
 zplug 'zsh-users/zsh-autosuggestions'
 zplug 'zsh-users/zsh-completions'
@@ -123,3 +138,66 @@ function tab_rename() {
 }
 zle -N tab_rename
 bindkey '^[tab_rename' tab_rename
+
+# ------------------------------------
+# cd
+# ------------------------------------
+setopt auto_cd
+setopt auto_pushd
+setopt pushd_ignore_dups
+chpwd() {
+  # cdしたらtreeを表示
+  tree -L 1
+  # 現在のディレクトリ名をタブに表示 for iTerm2
+  echo -ne "\e]1;${PWD##*/}\a"
+  # ブランチ名によってタブの色を変える
+  tab-reset
+  git-current-branch-color
+}
+
+# ------------------------------------
+# git
+# ------------------------------------
+function git-current-branch-color {
+  if [ ! -e ".git" ]; then
+    return
+  fi
+
+  branch_name=`git rev-parse --abbrev-ref HEAD 2> /dev/null`
+  if $(echo $PWD | grep coinfx > /dev/null); then
+    tab-color 255 255 0
+  elif $(echo $PWD | grep rehaplan > /dev/null); then
+    tab-color 255 105 180
+  elif $(echo $PWD | grep ma_navi > /dev/null); then
+    tab-color 65 105 225
+  fi
+}
+
+# ------------------------------------
+# iTerm2
+# ------------------------------------
+tab-color() {
+    echo -ne "\033]6;1;bg;red;brightness;$1\a"
+    echo -ne "\033]6;1;bg;green;brightness;$2\a"
+    echo -ne "\033]6;1;bg;blue;brightness;$3\a"
+}
+tab-reset() {
+    echo -ne "\033]6;1;bg;*;default\a"
+}
+
+# Change the color of the tab when using SSH
+# reset the color after the connection closes
+color-ssh() {
+    if [[ -n "$ITERM_SESSION_ID" ]]; then
+        trap "tab-reset" INT EXIT
+        if [[ "$*" =~ "production|ec2-.*compute-1" ]]; then
+            tab-color 255 0 0
+        else
+            tab-color 0 255 0
+        fi
+    fi
+    ssh $*
+}
+compdef _ssh color-ssh=ssh
+
+alias ssh=color-ssh
