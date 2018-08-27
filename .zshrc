@@ -4,9 +4,8 @@
 POWERLEVEL9K_MODE='awesome-fontconfig'
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=1
 #POWERLEVEL9K_ALWAYS_SHOW_USER=true
-#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time history time)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(rbenv dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time time date)
 # POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 # POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
 
@@ -139,10 +138,6 @@ chpwd() {
 # git
 # ------------------------------------
 function git-current-branch-color {
-  if [ ! -e ".git" ]; then
-    return
-  fi
-
   branch_name=`git rev-parse --abbrev-ref HEAD 2> /dev/null`
   if $(echo $PWD | grep coinfx > /dev/null); then
     tab-color 255 255 0
