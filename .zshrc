@@ -71,8 +71,6 @@ export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
 autoload -U promptinit; promptinit
-# プロンプトを変更
-#prompt pure
 
 # plugins
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
@@ -103,7 +101,7 @@ if ! zplug check --verbose; then
     fi
 fi
 
-# コマンドをリンクして、PATH に追加し、プラグインは読み込む
+# コマンドをリンクして、PATH に追加し、プラグインは読み込む(option --verbose)
 zplug load
 
 # ------------------------------------
