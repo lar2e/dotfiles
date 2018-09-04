@@ -58,7 +58,6 @@ set wrapscan                                 " 検索時に最後まで行った
 
 " その他
 inoremap  jj <ESC><ESC><ESC>
-inoremap <silent> っj <ESC>                  " 日本語入力で”っj”と入力してもEnterキーで確定させればインサートモードを抜ける
 set history=5000                             " 検索履歴数をデフォルト(20件）から1000件にする
 set visualbell t_vb=                         " ビープ音すべてを無効にする
 set noerrorbells                             " エラーメッセージの表示時にビープを鳴らさない
@@ -68,17 +67,9 @@ set autoread                                 " 外部でファイルに変更が
 set cursorline                               " カーソル行の背景色変更
 set backspace=indent,eol,start               " backspaceで消せるようにする
 autocmd QuickFixCmdPost *grep* cwindow       " grep後にquickfix-windowを起動する
-autocmd BufWritePre * :%s/\s\+$//ge          " ファイル保存時に行末の空白を自動削除
+autocmd BufWritePre * :call RTrim()          " ファイル保存時に行末の空白を自動削除
 set hlsearch!
 nnoremap <F3> :set hlsearch!<CR>
-
-" 日本語入力がオンのままでも使えるコマンド(Enterキーは必要)
-nnoremap あ a
-nnoremap い i
-nnoremap う u
-nnoremap お o
-nnoremap っd dd
-nnoremap っy yy
 
 augroup myfiletypes
   " Section: ruby
@@ -284,3 +275,18 @@ set rtp+=/usr/local/opt/fzf
 
 " If installed using git
 set rtp+=~/.fzf
+
+
+" --------------------------------
+" rm whitespace
+" --------------------------------
+function! RTrim()
+  let s:cursor = getpos(".")
+  if &filetype == "markdown"
+    %s/\s\+\(\s\{2}\)$/\1/e
+    match Underlined /\s\{2}/
+  else
+    %s/\s\+$//e
+  endif
+  call setpos(".", s:cursor)
+endfunction
