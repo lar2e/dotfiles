@@ -16,6 +16,8 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
+# tmux
+export TERM="xterm-256color"
 # ------------------------------------
 # alias
 # ------------------------------------
@@ -29,6 +31,7 @@ alias rehab="cd ~/repos/rehab/rehaplan/"
 alias gdc="git diff --cached"
 alias doc="docker"
 alias docp="docker-compose"
+alias dogs="docker-compose logs -f"
 
 # ------------------------------------
 # 環境設定
@@ -46,22 +49,28 @@ setopt correct
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init - zsh)"
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init - zsh)"
 
 # pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
 
 # goenv
-export GOENV_ROOT=$HOME/.goenv
-export PATH=$GOENV_ROOT/bin:$PATH
-eval "$(goenv init -)"
+# export GOENV_ROOT=$HOME/.goenv
+# export PATH=$GOENV_ROOT/bin:$PATH
+# eval "$(goenv init -)"
 
 # go lang
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+# export GOPATH=$HOME/go
+# export PATH=$PATH:$GOPATH/bin
+
+# direnv
+eval "$(direnv hook zsh)"
+
+# curlでクエスチョン
+setopt nonomatch
 
 # ------------------------------------
 # zplug
@@ -143,6 +152,10 @@ function git-current-branch-color {
     tab-color 255 105 180
   elif $(echo $PWD | grep ma_navi > /dev/null); then
     tab-color 65 105 225
+  elif $(echo $PWD | grep karte > /dev/null); then
+    tab-color 42 171 159
+  elif $(echo $PWD | grep plaidev > /dev/null); then
+    tab-color 184 0 34
   fi
 }
 

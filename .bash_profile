@@ -13,10 +13,10 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 
 # added by Anaconda3 4.3.1 installer
-export PATH="/anaconda/bin:$PATH"
+# export PATH="/anaconda/bin:$PATH"
 
 # rbenv
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
 
 # pyenv
 # eval "$(pyenv init -)"

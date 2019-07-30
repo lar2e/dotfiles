@@ -80,6 +80,36 @@ augroup myfiletypes
 augroup END
 
 " --------------------------------
+" 画面分割
+" --------------------------------
+nnoremap s <Nop>
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+nnoremap sJ <C-w>J
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+nnoremap sH <C-w>H
+nnoremap sn gt
+nnoremap sp gT
+nnoremap sr <C-w>r
+nnoremap s= <C-w>=
+nnoremap sw <C-w>w
+nnoremap so <C-w>_<C-w>|
+nnoremap sO <C-w>=
+nnoremap sN :<C-u>bn<CR>
+nnoremap sP :<C-u>bp<CR>
+nnoremap st :<C-u>tabnew<CR>
+nnoremap sT :<C-u>Unite tab<CR>
+nnoremap ss :<C-u>sp<CR>
+nnoremap sv :<C-u>vs<CR>
+nnoremap sq :<C-u>q<CR>
+nnoremap sQ :<C-u>bd<CR>
+nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
+nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
+
+" --------------------------------
 " Shougo/unite.vim
 " --------------------------------
 let g:unite_enable_start_insert=1
@@ -88,6 +118,15 @@ nmap <Space> [unite]
 
 " プロジェクト内でバッファと最近開いたファイル一覧を表示
 nnoremap <silent> [unite]f :<C-u>UniteWithProjectDir<Space>buffer file_mru<CR>
+
+" grep検索
+nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+
+" カーソル位置の単語をgrep検索
+nnoremap <silent> ,cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
+
+" grep検索結果の再呼出
+nnoremap <silent> ,r  :<C-u>UniteResume search-buffer<CR>
 
 " unite grep に ag を使用
 if executable('ag')
@@ -111,6 +150,13 @@ augroup vimrc-auto-mkdir  " {{{
     endif
   endfunction  " }}}
 augroup END  " }}}
+
+" insert modeで開始
+let g:unite_enable_start_insert = 1
+
+" 大文字小文字を区別しない
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
 
 " --------------------------------
 " Shougo/vimfiler.vim
@@ -290,3 +336,20 @@ function! RTrim()
   endif
   call setpos(".", s:cursor)
 endfunction
+
+" --------------------------------
+" NERDTree
+" --------------------------------
+autocmd vimenter * NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+
+" --------------------------------
+" vim-node
+" --------------------------------
+autocmd User Node
+  \ if &filetype == "javascript" |
+  \   nmap <buffer> <C-w>f <Plug>NodeVSplitGotoFile |
+  \   nmap <buffer> <C-w><C-f> <Plug>NodeVSplitGotoFile |
+  \ endif
