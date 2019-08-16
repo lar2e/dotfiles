@@ -26,8 +26,6 @@ alias la="ls -a"
 alias ll="ls -l"
 alias vf="vim +VimFiler"
 alias be="bundle exec"
-alias coinfx="cd /Users/kayamadaiji/repos/techfactory-jp/coinfx/"
-alias rehab="cd ~/repos/rehab/rehaplan/"
 alias gdc="git diff --cached"
 alias doc="docker"
 alias docp="docker-compose"
@@ -135,14 +133,21 @@ chpwd() {
   # cdしたらtreeを表示
   tree -L 1
   # 現在のディレクトリ名をタブに表示 for iTerm2
-  echo -ne "\e]1;${PWD##*/}\a"
+  # echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"
+  # echo -ne "\e]1;${PWD##*/}\a"
+
   # ブランチ名によってタブの色を変える
   tab-reset
   git-current-branch-color
 }
 
+precmd() {
+  # 現在のディレクトリ名をタブに表示 for iTerm2
+  echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"
+}
+
 # ------------------------------------
-# git
+# iTerm2 Tab Color
 # ------------------------------------
 function git-current-branch-color {
   branch_name=`git rev-parse --abbrev-ref HEAD 2> /dev/null`
@@ -152,16 +157,15 @@ function git-current-branch-color {
     tab-color 255 105 180
   elif $(echo $PWD | grep ma_navi > /dev/null); then
     tab-color 65 105 225
-  elif $(echo $PWD | grep karte > /dev/null); then
+  elif $(echo $PWD | grep karte-io-systems > /dev/null); then
+    tab-color 184 0 34
+  elif $(echo $PWD | grep karte-io > /dev/null); then
     tab-color 42 171 159
   elif $(echo $PWD | grep plaidev > /dev/null); then
     tab-color 184 0 34
   fi
 }
 
-# ------------------------------------
-# iTerm2
-# ------------------------------------
 tab-color() {
     echo -ne "\033]6;1;bg;red;brightness;$1\a"
     echo -ne "\033]6;1;bg;green;brightness;$2\a"

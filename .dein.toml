@@ -155,6 +155,9 @@ repo = "tpope/vim-fugitive"
 [[plugins]]
 repo = "tpope/vim-rhubarb"
 
+[[plugins]]
+repo = "digitaltoad/vim-pug"
+
 # 予測変換
 [[plugins]]
 repo = "zxqfl/tabnine-vim"

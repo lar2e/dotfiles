@@ -58,6 +58,7 @@ set wrapscan                                 " 検索時に最後まで行った
 
 " その他
 inoremap  jj <ESC><ESC><ESC>
+inoremap  kk <ESC><ESC><ESC>
 set history=5000                             " 検索履歴数をデフォルト(20件）から1000件にする
 set visualbell t_vb=                         " ビープ音すべてを無効にする
 set noerrorbells                             " エラーメッセージの表示時にビープを鳴らさない
@@ -195,8 +196,8 @@ let g:syntastic_ruby_rubocop_exe = 'bundle exec rubocop'
 " -------------------------------
 " soramugi/auto-ctags.vim
 " -------------------------------
-let g:auto_ctags = 1
-let g:auto_ctags_directory_list = ['.git', '.svn']
+" let g:auto_ctags = 1
+" let g:auto_ctags_directory_list = ['.git', '.svn']
 
 " -------------------------------
 " ctrlp.vim
@@ -344,6 +345,7 @@ autocmd vimenter * NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " --------------------------------
 " vim-node
