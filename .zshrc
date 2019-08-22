@@ -51,9 +51,9 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 # eval "$(rbenv init - zsh)"
 
 # pyenv
-# export PYENV_ROOT="$HOME/.pyenv"
-# export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # goenv
 # export GOENV_ROOT=$HOME/.goenv
