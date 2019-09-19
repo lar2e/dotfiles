@@ -18,6 +18,10 @@ SAVEHIST=10000
 
 # tmux
 export TERM="xterm-256color"
+
+# locale
+export LC_ALL=ja_JP.UTF-8
+
 # ------------------------------------
 # alias
 # ------------------------------------

@@ -62,3 +62,5 @@
   gn = grep -n
 [ghq]
 	root = /Users/kayamadaiji/workspace/sources
+[fetch]
+  prune = true

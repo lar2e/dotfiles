@@ -120,6 +120,9 @@ repo = 'wavded/vim-stylus'
 [[plugins]]
 repo = 'chr4/nginx.vim'
 
+[[pluings]]
+repo = 'Shougo/vimproc.vim'
+
 # 静的解析
 [[plugins]]
 repo = 'scrooloose/syntastic'

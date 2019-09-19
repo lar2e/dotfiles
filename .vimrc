@@ -58,7 +58,6 @@ set wrapscan                                 " 検索時に最後まで行った
 
 " その他
 inoremap  jj <ESC><ESC><ESC>
-inoremap  kk <ESC><ESC><ESC>
 set history=5000                             " 検索履歴数をデフォルト(20件）から1000件にする
 set visualbell t_vb=                         " ビープ音すべてを無効にする
 set noerrorbells                             " エラーメッセージの表示時にビープを鳴らさない
