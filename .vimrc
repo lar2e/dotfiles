@@ -189,8 +189,8 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntasticmodemap = { 'mode': 'active', 'active_filetypes': [
-  \ 'ruby', 'javascript','coffee', 'scss', 'html', 'haml', 'slim', 'sh',
-  \ 'spec', 'vim', 'zsh', 'sass', 'eruby'] }
+  \ 'ruby', 'javascript','coffee', 'scss', 'html', 'haml', 'slim', 'sh', 'ts',
+  \ 'spec', 'vim', 'zsh', 'sass', 'eruby', 'vue'] }
 
 let g:syntastic_javascript_checkers=['eslint']
 let g:syntastic_coffee_checkers = ['coffeelint']
@@ -198,12 +198,14 @@ let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_haml_checkers = ['haml_lint']
 let g:syntastic_python_checkers = ["flake8"]
+let g:systastic_typescript_checkers=['eslint']
 
 let g:syntastic_error_symbol='✗'
 let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_ruby_rubocop_exe = 'bundle exec rubocop'
+let g:vue_pre_processors = ['pug', 'scss']
 
 " -------------------------------
 " soramugi/auto-ctags.vim
@@ -367,3 +369,20 @@ autocmd User Node
   \   nmap <buffer> <C-w>f <Plug>NodeVSplitGotoFile |
   \   nmap <buffer> <C-w><C-f> <Plug>NodeVSplitGotoFile |
   \ endif
+
+" --------------------------------
+" vim-grepper
+" --------------------------------
+nmap gs  <plug>(GrepperOperator)
+xmap gs  <plug>(GrepperOperator)
+
+" --------------------------------
+" QuickFix
+" --------------------------------
+autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
+
+" --------------------------------
+" typescript-vim
+" --------------------------------
+let g:typescript_compiler_binary = 'tsc'
+let g:typescript_compiler_options = ''

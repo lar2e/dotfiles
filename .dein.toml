@@ -61,6 +61,9 @@ repo = 'rking/ag.vim'
 [[plugins]]
 repo = 'vim-scripts/grep.vim'
 
+[[plugins]]
+repo = 'mhinz/vim-grepper'
+
 # tool
 [[plugins]]
 repo = 'tell-k/vim-browsereload-mac'
@@ -122,6 +125,9 @@ repo = 'chr4/nginx.vim'
 
 [[pluings]]
 repo = 'Shougo/vimproc.vim'
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
 
 # 静的解析
 [[plugins]]

@@ -22,6 +22,11 @@ export TERM="xterm-256color"
 # locale
 export LC_ALL=ja_JP.UTF-8
 
+# mysql
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
 # ------------------------------------
 # alias
 # ------------------------------------
@@ -32,8 +37,28 @@ alias vf="vim +VimFiler"
 alias be="bundle exec"
 alias gdc="git diff --cached"
 alias doc="docker"
-alias docp="docker-compose"
-alias dogs="docker-compose logs -f"
+alias dc="docker-compose"
+alias kc="kubectl"
+
+# application
+alias chrome="open -a 'Google Chrome'"
+
+# tmux
+if [ $SHLVL = 2 ]; then
+  alias tmux="tmux attach || tmux new-session \; source-file ~/.tmux/new-session"
+fi
+alias ta="tmux attach"
+alias tat="tmux attach -t"
+alias tad="tmux attach -d -t"
+alias ts="tmux new-session -s"
+alias tl="tmux list-sessions"
+alias tksv="tmux kill-server"
+alias tkss="tmux kill-session -t"
+alias osa="osascript -e 'display notification \"script done!\"'"
+
+# mysql
+alias start_mysql="brew services start mysql@5.7"
+alias stop_mysql="brew services stop mysql@5.7"
 
 # ------------------------------------
 # 環境設定
@@ -47,12 +72,13 @@ setopt histignorealldups
 # コマンド入力ミスを修正
 setopt correct
 
-# nodebrew
-export PATH=$HOME/.nodebrew/current/bin:$PATH
+# nodenv
+eval "$(nodenv init -)"
+export PATH="$HOME/.nodenv/bin:$PATH"
 
 # rbenv
-# export PATH="$HOME/.rbenv/bin:$PATH"
-# eval "$(rbenv init - zsh)"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -67,6 +93,9 @@ eval "$(pyenv init -)"
 # go lang
 # export GOPATH=$HOME/go
 # export PATH=$PATH:$GOPATH/bin
+
+# karte-io
+export PATH=$HOME/repos/plaidev/karte-io/scripts/bin:$PATH
 
 # direnv
 eval "$(direnv hook zsh)"

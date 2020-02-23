@@ -31,3 +31,4 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # pythonをphenvを見るようにする
 # export PATH="$HOME/.pyenv/shims:$PATH"
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+source ~/repos/plaidev/karte-io/scripts/karte.sh.inc
