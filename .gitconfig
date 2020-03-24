@@ -1,6 +1,6 @@
 [user]
-	name = Kayama Daiji
-	email = kayama@kajitz.com
+	name = Daiji Kayama
+	email = daiji.kayama@plaid.co.jp
 [color]
   # colorの設定(以下のコマンドは自動で色つける)
   status = auto
@@ -9,7 +9,7 @@
   interactive = auto
   grep = auto
 [push]
-  default = tracking       # defaultのpush先はtrackingしているリポジトリ
+  # default = tracking       # defaultのpush先はtrackingしているリポジトリ
 [core]
   excludesfile = ~/.gitignore  # globalな.gitignoreの指定
   autocrlf = input                 # CRLFを自動変換
@@ -60,6 +60,8 @@
   # grep関連
   gr = grep
   gn = grep -n
+  merged-branch = !sh -c 'git branch -vv | grep \"origin/.*: gone]\" | awk \"{print \\$1}\"'
+  gone = !sh -c 'git merged-branch | xargs git branch -D'
 [ghq]
 	root = /Users/kayamadaiji/workspace/sources
 [fetch]
