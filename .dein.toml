@@ -74,6 +74,9 @@ repo = 'szw/vim-tags'
 [[plugins]]
 repo = 'iberianpig/tig-explorer.vim'
 
+[[plugins]]
+repo = 'nelstrom/vim-visual-star-search'
+
 # syntax
 [[plugins]]
 repo = 'vim-syntastic/syntastic'

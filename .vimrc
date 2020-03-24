@@ -207,6 +207,9 @@ let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_ruby_rubocop_exe = 'bundle exec rubocop'
 let g:vue_pre_processors = ['pug', 'scss']
 
+" [vue]行の途中でsyntaxが効かなくなる
+autocmd FileType vue syntax sync fromstart
+
 " -------------------------------
 " soramugi/auto-ctags.vim
 " -------------------------------
@@ -336,7 +339,6 @@ set rtp+=/usr/local/opt/fzf
 
 " If installed using git
 set rtp+=~/.fzf
-
 
 " --------------------------------
 " rm whitespace
