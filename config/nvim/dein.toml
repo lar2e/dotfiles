@@ -1,0 +1,77 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+# =============================================
+# Filer
+# =============================================
+[[plugins]]
+repo ="kristijanhusak/defx-git"
+hook_add = '''
+call defx#custom#column('git', 'indicators', {
+  \ 'Modified'  : '✹',
+  \ 'Staged'    : '✚',
+  \ 'Untracked' : '✭',
+  \ 'Renamed'   : '➜',
+  \ 'Unmerged'  : '═',
+  \ 'Ignored'   : '☒',
+  \ 'Deleted'   : '✖',
+  \ 'Unknown'   : '?'
+  \ })
+'''
+
+[[plugins]]
+repo ="kristijanhusak/defx-icons"
+
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+depends = ['defx-git', 'defx-icons']
+hook_add = '''
+  source ~/.config/nvim/plugins/defx.vim
+'''
+
+# =============================================
+# Search File
+# =============================================
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+depends = ['neomru.vim']
+hook_add= '''
+  source ~/.config/nvim/plugins/denite.vim
+'''
+
+# =============================================
+# Terminal
+# =============================================
+[[plugins]]
+repo = 'kassio/neoterm'
+hook_add = '''
+  source ~/.config/nvim/plugins/neoterm.vim
+'''
+
+
+# =============================================
+# LSP
+# =============================================
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+build = './install.sh nightly'
+hook_add = '''
+  source ~/.config/nvim/plugins/coc.vim
+'''
+
+# =============================================
+# POWERLINE
+# =============================================
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+depends = ['vim-airline-themes']
+hook_add = '''
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#syntastic#enabled = 1
+'''
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+hook_add='''
+  let g:airline_theme='deus'
+'''

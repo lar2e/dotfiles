@@ -1,0 +1,17 @@
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_source = '''
+  source = ~/.config/nvim/plugins/deoplete.vim
+'''
+
+[[plugins]]
+repo = 'ujihisa/neco-look'
+on_source = ['deoplete.nvim']
+
+[[plugins]]
+repo = 'Shougo/neco-syntax'
+on_source = ['deoplete.nvim']
+
+[[plugins]]
+repo = 'Konfekt/FastFold'
+on_source = ['deoplete.nvim']

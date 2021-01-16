@@ -2,8 +2,8 @@
 repo = 'Shougo/dein.vim'
 
 # 表示
-[[plugins]]
-repo = 'Shougo/vimfiler'
+# [[plugins]]
+# repo = 'Shougo/vimfiler'
 
 [[plugins]]
 repo = 'vim-airline/vim-airline'
@@ -52,8 +52,8 @@ repo = 'Shougo/neomru.vim'
 [[plugins]]
 repo = 'Shougo/unite.vim'
 
-[[plugins]]
-repo = 'soramugi/auto-ctags.vim'
+# [[plugins]]
+# repo = 'soramugi/auto-ctags.vim'
 
 [[plugins]]
 repo = 'rking/ag.vim'
@@ -65,8 +65,8 @@ repo = 'vim-scripts/grep.vim'
 repo = 'mhinz/vim-grepper'
 
 # tool
-[[plugins]]
-repo = 'tell-k/vim-browsereload-mac'
+# [[plugins]]
+# repo = 'tell-k/vim-browsereload-mac'
 
 [[plugins]]
 repo = 'szw/vim-tags'
@@ -76,6 +76,17 @@ repo = 'iberianpig/tig-explorer.vim'
 
 [[plugins]]
 repo = 'nelstrom/vim-visual-star-search'
+
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+
+## for defx.vim (if not use nvim)
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+
+## for defx.vim (if not use nvim)
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
 
 # syntax
 [[plugins]]
@@ -105,8 +116,8 @@ repo = 'chase/vim-ansible-yaml'
 [[plugins]]
 repo = 'pangloss/vim-javascript'
 
-[[plugins]]
-repo = 'mxw/vim-jsx'
+# [[plugins]]
+# repo = 'mxw/vim-jsx'
 
 [[plugins]]
 repo = 'posva/vim-vue'
@@ -129,8 +140,8 @@ repo = 'chr4/nginx.vim'
 [[pluings]]
 repo = 'Shougo/vimproc.vim'
 
-[[plugins]]
-repo = 'leafgarland/typescript-vim'
+# [[plugins]]
+# repo = 'leafgarland/typescript-vim'
 
 # 静的解析
 [[plugins]]
@@ -147,8 +158,8 @@ repo = 'sekel/vim-vue-syntastic'
 repo = 'ruby-formatter/rufo-vim'
 
 # Utilities
-[[plugins]]
-repo = 'tpope/vim-pathogen'
+# [[plugins]]
+# repo = 'tpope/vim-pathogen'
 
 # Node.js
 [[plugins]]
@@ -183,3 +194,8 @@ repo = "kevinw/pyflakes-vim"
 
 # [[plugins]]
 # repo = "nvie/vim-flake8"
+
+# LSP
+[[plugin]]
+repo = 'neoclide/coc.nvim'
+build = './install.sh nightly'

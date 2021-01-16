@@ -27,6 +27,12 @@ export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
+
+# gcloud でエラーがあったので変更
+# https://github.com/kubernetes/kubectl/issues/970
+export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+alias python=/usr/local/opt/python@3.8/bin/python3
+
 # ------------------------------------
 # alias
 # ------------------------------------
@@ -39,6 +45,7 @@ alias gdc="git diff --cached"
 alias doc="docker"
 alias dc="docker-compose"
 alias kc="kubectl"
+alias vim="nvim"
 
 # application
 alias chrome="open -a 'Google Chrome'"
@@ -54,7 +61,7 @@ alias ts="tmux new-session -s"
 alias tl="tmux list-sessions"
 alias tksv="tmux kill-server"
 alias tkss="tmux kill-session -t"
-alias osa="osascript -e 'display notification \"script done!\"'"
+alias osa="osascript -e 'display notification \"script done🚀\"' && afplay /System/Library/Sounds/Hero.aiff"
 
 # mysql
 alias start_mysql="brew services start mysql@5.7"
@@ -102,6 +109,19 @@ eval "$(direnv hook zsh)"
 
 # curlでクエスチョン
 setopt nonomatch
+
+# neovim
+export XDG_CONFIG_HOME=$HOME/.config
+
+# github CLI
+eval "$(gh completion -s zsh)"
+
+# maven
+export PATH="/usr/local/opt/maven@3.5/bin:$PATH"
+
+# java8
+export JAVA_HOME=`/usr/libexec/java_home -v "1.8"`
+PATH=${JAVA_HOME}/bin:${PATH}
 
 # ------------------------------------
 # zplug

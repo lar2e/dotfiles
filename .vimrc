@@ -110,6 +110,13 @@ nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
 nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 
 " --------------------------------
+" Buffer
+" --------------------------------
+" nnoremap <silent>bp :bprevious<CR>
+" nnoremap <silent>bn :bnext<CR>
+" nnoremap <silent>bb :b#<CR>
+
+" --------------------------------
 " Shougo/unite.vim
 " --------------------------------
 let g:unite_enable_start_insert=1
@@ -173,8 +180,8 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
 " --------------------------------
 " Shougo/vimfiler.vim
 " --------------------------------
-nnoremap <silent> <Space>vf  :VimFiler<CR>
-let g:vimfiler_as_default_explorer = 1
+" nnoremap <silent> <Space>vf  :VimFiler<CR>
+" let g:vimfiler_as_default_explorer = 1
 
 " --------------------------------
 " syntastic
@@ -193,7 +200,6 @@ let g:syntasticmodemap = { 'mode': 'active', 'active_filetypes': [
   \ 'spec', 'vim', 'zsh', 'sass', 'eruby', 'vue'] }
 
 let g:syntastic_javascript_checkers=['eslint']
-let g:syntastic_coffee_checkers = ['coffeelint']
 let g:syntastic_scss_checkers = ['scss_lint']
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_haml_checkers = ['haml_lint']
@@ -274,11 +280,12 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 " --------------------------------
 set laststatus=2
 let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 
 " --------------------------------
 " alvan/vim-closetag
 " --------------------------------
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb"
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.erb,*.vue"
 
 " --------------------------------
 " iberianpig/tig-explorer.vim
@@ -288,12 +295,12 @@ nnoremap <Space>t :TigOpenProjectRootDir<CR>
 " --------------------------------
 " vim-browsereload-mac
 " --------------------------------
-nnoremap <Space>r :ChromeReload<CR>
+" nnoremap <Space>r :ChromeReload<CR>
 
 " --------------------------------
 " mxw/vim-jsx
 " --------------------------------
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+" let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " --------------------------------
 " ruby-formatter/rufo-vim
@@ -304,7 +311,7 @@ let g:rufo_auto_formatting = 0
 " --------------------------------
 " tpope/vim-pathogen
 " --------------------------------
-execute pathogen#infect()
+" execute pathogen#infect()
 
 " --------------------------------
 " sekel/vim-vue-syntastic
@@ -386,5 +393,5 @@ autocmd! FileType qf nnoremap <buffer> <leader><Enter> <C-w><Enter><C-w>L
 " --------------------------------
 " typescript-vim
 " --------------------------------
-let g:typescript_compiler_binary = 'tsc'
-let g:typescript_compiler_options = ''
+" let g:typescript_compiler_binary = 'tsc'
+" let g:typescript_compiler_options = ''
