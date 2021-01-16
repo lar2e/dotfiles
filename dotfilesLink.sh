@@ -1,7 +1,11 @@
 #!/bin/sh
-ln -sf ~/repos/dotfiles/.gitconfig ~/.gitconfig
-ln -sf ~/repos/dotfiles/.dein.toml ~/.dein.toml
-ln -sf ~/repos/dotfiles/.bash_profile ~/.bash_profile
-ln -sf ~/repos/dotfiles/.bashrc ~/.bashrc
-ln -sf ~/repos/dotfiles/.zshrc ~/.zshrc
-ln -sf ~/repos/dotfiles/.vimrc ~/.vimrc
+
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
+
+ln -sf $SCRIPT_DIR/.gitconfig ~/.gitconfig
+ln -sf $SCRIPT_DIR/.dein.toml ~/.dein.toml
+ln -sf $SCRIPT_DIR/.bash_profile ~/.bash_profile
+ln -sf $SCRIPT_DIR/.bashrc ~/.bashrc
+ln -sf $SCRIPT_DIR/.zshrc ~/.zshrc
+# ln -sf $SCRIPT_DIR/.vimrc ~/.vimrc
+ln -sf $SCRIPT_DIR/config/nvim ~/.config/nvim

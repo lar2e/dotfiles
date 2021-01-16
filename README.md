@@ -1,1 +1,5 @@
 # dotfiles
+
+```shell
+$ ./dotfilesLink.sh
+```
