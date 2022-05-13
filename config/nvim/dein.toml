@@ -75,3 +75,15 @@ repo = 'vim-airline/vim-airline-themes'
 hook_add='''
   let g:airline_theme='deus'
 '''
+
+# =============================================
+# Git Plugin
+# =============================================
+[[plugins]]
+repo = "tpope/vim-fugitive"
+
+# =============================================
+# rewize window
+# =============================================
+[[plugins]]
+repo = 'simeji/winresizer'

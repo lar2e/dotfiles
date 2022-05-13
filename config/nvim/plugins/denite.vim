@@ -1,7 +1,7 @@
 " Define mappings
 " Deniteの設定
 nnoremap [denite] <Nop>
-nmap <C-u> [denite]
+nmap <C-g> [denite]
 
 " -buffer-name=
 nnoremap <silent> [denite]g :<C-u>Denite grep -buffer-name=search-buffer-denite<CR>
@@ -14,15 +14,15 @@ nnoremap <silent> [denite]n :<C-u>Denite -resume -buffer-name=search-buffer-deni
 " resumeした検索結果の前の行の結果へ飛ぶ
 nnoremap <silent> [denite]p :<C-u>Denite -resume -buffer-name=search-buffer-denite -select=-1 -immediately<CR>
 "現在開いているファイルのディレクトリ下のファイル一覧。
-nnoremap <silent> [denite]f :<C-u>DeniteBufferDir -direction=topleft -cursor-wrap=true file file:new<CR>
+nnoremap <silent> [denite]f :<C-u>DeniteBufferDir -direction=topleft file file:new<CR>
 "バッファ一覧
-nnoremap <silent> [denite]b :<C-u>Denite -direction=topleft -cursor-wrap=true buffer<CR>
+nnoremap <silent> [denite]b :<C-u>Denite -direction=topleft buffer<CR>
 "レジスタ一覧
-nnoremap <silent> [denite]r :<C-u>Denite -direction=topleft -cursor-wrap=true -buffer-name=register register<CR>
+nnoremap <silent> [denite]r :<C-u>Denite -direction=topleft -buffer-name=register register<CR>
 "最近使用したファイル一覧
-nnoremap <silent> [denite]m :<C-u>Denite -direction=topleft -cursor-wrap=true file_mru<CR>
+nnoremap <silent> [denite]m :<C-u>Denite -direction=topleft file_mru<CR>
 "ブックマーク一覧
-nnoremap <silent> [denite]c :<C-u>Denite -direction=topleft -cursor-wrap=true bookmark<CR>
+nnoremap <silent> [denite]c :<C-u>Denite -direction=topleft bookmark<CR>
 "ブックマークに追加
 nnoremap <silent> [denite]a :<C-u>DeniteBookmarkAdd<CR>
 

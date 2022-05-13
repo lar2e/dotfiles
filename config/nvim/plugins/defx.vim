@@ -21,7 +21,8 @@ call defx#custom#option('_', {
 
 nnoremap <silent> <Leader>f :<C-u>Defx<CR>
 nnoremap <silent>fi :<C-u>Defx -new `expand('%:p:h')` -search=`expand('%:p')`<CR>
-nnoremap <silent><C-e> :<C-u>Defx -new `expand('%:p:h')` -search=`expand('%:p')`<CR>
+nnoremap <silent>fl :<C-u>Defx -new `expand('%:p:h')` -search=`expand('%:p')` -split=vertical -winwidth=50 -direction=botright<CR>
+" nnoremap <silent><C-e> :<C-u>Defx -new `expand('%:p:h')` -search=`expand('%:p')`<CR>
 autocmd FileType defx call s:defx_my_settings()
   function! s:defx_my_settings() abort
     " Define mappings

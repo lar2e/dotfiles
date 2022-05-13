@@ -119,6 +119,13 @@ nnoremap sb :<C-u>Unite buffer_tab -buffer-name=file<CR>
 nnoremap sB :<C-u>Unite buffer -buffer-name=file<CR>
 
 " ========================================
+" change buffers
+" ========================================
+nnoremap <silent>bp :bprevious<CR>
+nnoremap <silent>bn :bnext<CR>
+nnoremap <silent>bb :b#<CR>
+
+" ========================================
 " remove whitespaces
 " ========================================
 function! RTrim()

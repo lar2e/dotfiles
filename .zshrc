@@ -80,12 +80,15 @@ setopt histignorealldups
 setopt correct
 
 # nodenv
-eval "$(nodenv init -)"
-export PATH="$HOME/.nodenv/bin:$PATH"
+# eval "$(nodenv init -)"
+# export PATH="$HOME/.nodenv/bin:$PATH"
+#
+# nvm
+source $(brew --prefix nvm)/nvm.sh
 
 # rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init -)"
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
