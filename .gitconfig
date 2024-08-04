@@ -1,6 +1,6 @@
 [user]
 	name = Daiji Kayama
-	email = daiji.kayama@plaid.co.jp
+	email = lar2e@users.noreply.github.com
 [color]
   # colorの設定(以下のコマンドは自動で色つける)
   status = auto
@@ -11,8 +11,8 @@
 [push]
   # default = tracking       # defaultのpush先はtrackingしているリポジトリ
 [core]
-  excludesfile = ~/.gitignore  # globalな.gitignoreの指定
-  autocrlf = input                 # CRLFを自動変換
+	excludesFile = /Users/kayamadaiji/.gitignore_global
+	autocrlf = input
   editor = vim                 # エディタをvimにする
 [alias]
   st = status

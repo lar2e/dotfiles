@@ -1,7 +1,8 @@
 # ------------------------------------
 # 環境変数
 # ------------------------------------
-POWERLEVEL9K_MODE='awesome-fontconfig'
+# POWERLEVEL9K_MODE='awesome-fontconfig'
+POSERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=1
 #POWERLEVEL9K_ALWAYS_SHOW_USER=true
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(rbenv dir vcs)
@@ -36,7 +37,7 @@ alias python=/usr/local/opt/python@3.8/bin/python3
 # ------------------------------------
 # alias
 # ------------------------------------
-alias ls="ls -S -F"
+alias ls="exa -S -F"
 alias la="ls -a"
 alias ll="ls -l"
 alias vf="vim +VimFiler"
@@ -46,6 +47,15 @@ alias doc="docker"
 alias dc="docker-compose"
 alias kc="kubectl"
 alias vim="nvim"
+alias python="python3"
+
+# rust
+alias find="fd"
+alias cat="bat"
+alias grep="rg"
+# alias sed="sd"
+alias dig="dog"
+alias man="tldr"
 
 # application
 alias chrome="open -a 'Google Chrome'"
@@ -84,7 +94,8 @@ setopt correct
 # export PATH="$HOME/.nodenv/bin:$PATH"
 #
 # nvm
-source $(brew --prefix nvm)/nvm.sh
+# source $(brew --prefix nvm)/bin/nvm.sh
+# export XDG_CONFIG_HOME=$HOME/.config
 
 # rbenv
 # export PATH="$HOME/.rbenv/bin:$PATH"
@@ -93,6 +104,7 @@ source $(brew --prefix nvm)/nvm.sh
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
 # goenv
@@ -104,17 +116,14 @@ eval "$(pyenv init -)"
 # export GOPATH=$HOME/go
 # export PATH=$PATH:$GOPATH/bin
 
-# karte-io
-export PATH=$HOME/repos/plaidev/karte-io/scripts/bin:$PATH
-
 # direnv
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 
 # curlでクエスチョン
 setopt nonomatch
 
-# neovim
-export XDG_CONFIG_HOME=$HOME/.config
+# fnm
+eval "$(fnm env)"
 
 # github CLI
 eval "$(gh completion -s zsh)"
@@ -130,7 +139,7 @@ PATH=${JAVA_HOME}/bin:${PATH}
 # zplug
 # ------------------------------------
 
-export ZPLUG_HOME=/usr/local/opt/zplug
+export ZPLUG_HOME=$(brew --prefix)/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
 autoload -U promptinit; promptinit
@@ -213,10 +222,6 @@ function git-current-branch-color {
     tab-color 255 105 180
   elif $(echo $PWD | grep ma_navi > /dev/null); then
     tab-color 65 105 225
-  elif $(echo $PWD | grep karte-io-systems > /dev/null); then
-    tab-color 184 0 34
-  elif $(echo $PWD | grep karte-io > /dev/null); then
-    tab-color 42 171 159
   elif $(echo $PWD | grep plaidev > /dev/null); then
     tab-color 184 0 34
   fi
@@ -247,3 +252,4 @@ color-ssh() {
 compdef _ssh color-ssh=ssh
 
 alias ssh=color-ssh
+export PATH="/opt/homebrew/opt/mysql@5.7/bin:$PATH"
