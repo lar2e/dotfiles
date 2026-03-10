@@ -9,4 +9,5 @@ ln -sf $SCRIPT_DIR/.bashrc ~/.bashrc
 ln -sf $SCRIPT_DIR/.zshrc ~/.zshrc
 # ln -sf $SCRIPT_DIR/.vimrc ~/.vimrc
 ln -sf $SCRIPT_DIR/config/nvim ~/.config/nvim
+ln -sf $SCRIPT_DIR/config/ghostty/config ~/.config/ghostty/config
 ln -sf $SCRIPT_DIR/.tmux.conf ~/.tmux.conf

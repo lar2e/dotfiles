@@ -1,0 +1,28 @@
+# Ghostty Configuration
+
+# 背景の透過性 (0.0 = 完全透明, 1.0 = 不透明)
+background-opacity = 0.95
+unfocused-split-opacity = 0.45
+
+# 背景のぼかし効果
+background-blur-radius = 20
+
+# フォント設定
+# font-family = "JetBrains Mono"
+# font-size = 14
+
+# テーマ
+theme = 0x96f
+
+# ウィンドウの装飾
+# window-decoration = true
+
+# パディング
+# window-padding-x = 8
+# window-padding-y = 8
+
+# スプリット間のフォーカス移動（vim キーバインド）
+keybind = super+ctrl+h=goto_split:left
+keybind = super+ctrl+j=goto_split:down
+keybind = super+ctrl+k=goto_split:up
+keybind = super+ctrl+l=goto_split:right

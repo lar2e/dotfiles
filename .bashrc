@@ -1,3 +1,5 @@
+
+export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Setup ssh-agent
