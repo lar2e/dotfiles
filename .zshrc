@@ -53,11 +53,8 @@ autoload -Uz compinit && compinit
 # ------------------------------------------------------------------------------------------------
 # Sheldon Plugin Manager
 # ------------------------------------------------------------------------------------------------
-eval "$(sheldon source)"
-
 eval "$(gh completion -s zsh)"
 eval "$(task --completion zsh)"
-source <(kubectl completion zsh)
 
 # SSH completion from ~/.ssh/config
 function _ssh { compadd $(fgrep 'Host ' ~/.ssh/*/config | grep -v '*' | awk '{print $2}' | sort) }
@@ -93,17 +90,9 @@ alias grep="rg"
 # ------------------------------------------------------------------------------------------------
 alias vim="nvim"
 alias vf="vim +VimFiler"
-alias be="bundle exec"
 
 # Git aliases
 alias gdc="git diff --cached"
-
-# Docker aliases
-alias doc="docker"
-alias dc="docker-compose"
-
-# Kubernetes
-alias kc="kubectl"
 
 # ------------------------------------------------------------------------------------------------
 # Aliases - Applications
